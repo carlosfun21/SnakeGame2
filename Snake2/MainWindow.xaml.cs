@@ -34,21 +34,36 @@ namespace Snake2
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            
+            canvas.Children.Clear();
+
             int tamanyXCasella = (int)(canvas.ActualWidth / SnakeGame.X_SIZE);
             int tamanyYCasella = (int)(canvas.ActualHeight / SnakeGame.Y_SIZE);
 
             //Redibuixar cada vegada.
             Ellipse ellSerp = new Ellipse()
             {
-                Fill = Brushes.Red,
+                Fill = Brushes.Green,
                 Width = tamanyXCasella,
                 Height = tamanyYCasella,
             };
             canvas.Children.Add(ellSerp);
             Canvas.SetTop(ellSerp, jocSerp.CapSerp.Y * tamanyYCasella );
             Canvas.SetLeft(ellSerp, jocSerp.CapSerp.X * tamanyXCasella );
-            canvas.Children.Clear();
+
+            foreach (var item in jocSerp.Pomes)
+            {
+                Ellipse poma = new Ellipse()
+                {
+                    Fill = Brushes.Red,
+                    Width = tamanyXCasella,
+                    Height = tamanyYCasella,
+                };
+
+                canvas.Children.Add(poma);
+                Canvas.SetTop(poma, jocSerp.CapSerp.Y * tamanyYCasella);
+                Canvas.SetLeft(poma, jocSerp.CapSerp.X * tamanyXCasella);
+            }
+          
 
         }
 

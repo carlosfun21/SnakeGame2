@@ -19,12 +19,23 @@ namespace Snake2
     {
         public const int X_SIZE = 10;
         public const int Y_SIZE = 10;
+        public const int NPOMES = 5;
 
         Point capSerp = new Point(X_SIZE/2, 0);
         DireccioSnake direccio = DireccioSnake.Dreta;
+        List<Point> pomes = new List<Point>();
+        Random r = new Random();
+        public SnakeGame()
+        {
+            for (int i = 0; i < NPOMES; i++)
+            {
+                Pomes.Add(new Point(r.Next(0, X_SIZE), r.Next(0, Y_SIZE)));
 
+            }
+        }
         public Point CapSerp { get => capSerp; set => capSerp = value; }
         public DireccioSnake Direccio { get => direccio; set => direccio = value; }
+        public List<Point> Pomes { get => pomes; }
 
         internal void moure(DireccioSnake dir)
         {
