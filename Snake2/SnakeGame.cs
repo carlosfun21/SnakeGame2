@@ -26,9 +26,13 @@ namespace Snake2
         public Point CapSerp { get => capSerp; set => capSerp = value; }
         public DireccioSnake Direccio { get => direccio; set => direccio = value; }
 
-        internal void moure()
+        internal void moure(DireccioSnake dir)
         {
-            capSerp.X++;
+            if (dir == DireccioSnake.Avall) capSerp.Y--;
+            else if (dir == DireccioSnake.Amunt) capSerp.Y++;
+            else if (dir == DireccioSnake.Esquerre) capSerp.X--;
+            else if (dir == DireccioSnake.Dreta) capSerp.X++;
+
         }
     }
 }

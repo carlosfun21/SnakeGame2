@@ -34,6 +34,7 @@ namespace Snake2
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            
             int tamanyXCasella = (int)(canvas.ActualWidth / SnakeGame.X_SIZE);
             int tamanyYCasella = (int)(canvas.ActualHeight / SnakeGame.Y_SIZE);
 
@@ -47,11 +48,28 @@ namespace Snake2
             canvas.Children.Add(ellSerp);
             Canvas.SetTop(ellSerp, jocSerp.CapSerp.Y * tamanyYCasella );
             Canvas.SetLeft(ellSerp, jocSerp.CapSerp.X * tamanyXCasella );
+            canvas.Children.Clear();
+
         }
 
         private void canvas_KeyDown(object sender, KeyEventArgs e)
         {
-            jocSerp.moure();
+            if (e.Key == Key.Up)
+            {
+                jocSerp.moure(DireccioSnake.Amunt);
+            }
+            else if (e.Key == Key.Down)
+            {
+                jocSerp.moure(DireccioSnake.Avall);
+            }
+            else if (e.Key == Key.Left)
+            {
+                jocSerp.moure(DireccioSnake.Esquerre);
+            }
+            else if (e.Key == Key.Right)
+            {
+                jocSerp.moure(DireccioSnake.Dreta);
+            }
         }
     }
 }
