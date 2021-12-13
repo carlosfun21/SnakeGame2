@@ -41,14 +41,14 @@ namespace Snake2
             //Redibuixar cada vegada.
             Ellipse ellSerp = new Ellipse()
             {
-                Fill = Brushes.Pink,
+                Fill = Brushes.Blue,
                 Width = tamanyXCasella,
                 Height = tamanyYCasella,
             };
             canvas.Children.Add(ellSerp);
             Canvas.SetTop(ellSerp, jocSerp.CapSerp.Y * tamanyYCasella );
             Canvas.SetLeft(ellSerp, jocSerp.CapSerp.X * tamanyXCasella );
-            canvas.Children.Clear();
+            //canvas.Children.Clear();
 
         }
 
